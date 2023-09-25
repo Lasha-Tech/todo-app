@@ -281,8 +281,13 @@ function App() {
           }
             return (
             <div key={index} className="todo-item" onMouseOver={(e) => {
+              const deleteTargetClone = e.currentTarget.querySelector('.delete-clone')
               const deleteTarget = e.currentTarget.querySelector('.delete')
-              deleteTarget.style.display = 'block'
+              if(deleteTargetClone.style.display == 'block') {
+                console.log('yes')
+              } else {
+                deleteTarget.style.display = 'block'
+              }
             }}
             onMouseOut={(e) => {
               const deleteTarget = e.currentTarget.querySelector('.delete')
@@ -315,6 +320,11 @@ function App() {
                 <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
                  fill={'#494C6B'}/>
               </svg>
+
+              <svg className='delete-clone' onClick={() => handleDeleteFunction(index)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+                <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
+                  fill={'#494C6B'}/>
+              </svg>
             </div>
             )})
             // Active 
@@ -323,8 +333,13 @@ function App() {
                 digit += 1
                 return (
                   <div key={index} className="todo-item" onMouseOver={(e) => {
+                    const deleteTargetClone = e.currentTarget.querySelector('.delete-clone')
                     const deleteTarget = e.currentTarget.querySelector('.delete')
-                    deleteTarget.style.display = 'block'
+                    if(deleteTargetClone.style.display == 'block') {
+                      console.log('yes')
+                    } else {
+                      deleteTarget.style.display = 'block'
+                    }
                   }}
                   onMouseOut={(e) => {
                     const deleteTarget = e.currentTarget.querySelector('.delete')
@@ -356,6 +371,11 @@ function App() {
                     <svg className='delete' onClick={() => handleDeleteFunction(index)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
                       <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
                        fill={'#494C6B'}/>
+
+                       <svg className='delete-clone' onClick={() => handleDeleteFunction(index)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+                         <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
+                           fill={'#494C6B'}/>
+                       </svg>
                     </svg>
                   </div>
                   )
@@ -371,8 +391,13 @@ function App() {
                     deleteTarget.style.display = 'block'
                   }}
                   onMouseOut={(e) => {
+                    const deleteTargetClone = e.currentTarget.querySelector('.delete-clone')
                     const deleteTarget = e.currentTarget.querySelector('.delete')
-                    deleteTarget.style.display = 'none'
+                    if(deleteTargetClone.style.display == 'block') {
+                      console.log('yes')
+                    } else {
+                      deleteTarget.style.display = 'block'
+                    }
                   }}
                    style={{borderTop: day? '1px solid #E3E4F1': '1px solid #393A4B'}}>
                     <div className="left">
@@ -400,6 +425,11 @@ function App() {
                     <svg className='delete' onClick={() => handleDeleteFunction(index)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
                       <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
                        fill={'#494C6B'}/>
+
+                       <svg className='delete-clone' onClick={() => handleDeleteFunction(index)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+                         <path d="M11.7851 0.471404L11.3137 0L5.89256 5.42115L0.471404 0L0 0.471404L5.42115 5.89256L0 11.3137L0.471404 11.7851L5.89256 6.36396L11.3137 11.7851L11.7851 11.3137L6.36396 5.89256L11.7851 0.471404Z"
+                           fill={'#494C6B'}/>
+                       </svg>
                     </svg>
                   </div>
                   )
@@ -410,6 +440,22 @@ function App() {
           {/* Main Footer  */}
         <div className="main-footer" style={{borderTop: day? '1px solid #E3E4F1': '1px solid #393A4B'}}>
           <p className="items-counter" style={{color: day? '#9495A5':'#5B5E7E'}}>{digit} Items left</p>
+
+          <div className="footer-clone" style={{backgroundColor: day? '#FFF': '#25273D'}}>
+            {/* All  */}
+            <p className="all" onMouseOver={() => handleAllMouseOver()}
+            onMouseOut={() => handleAllMouseOut()}
+            onClick={() => handleAllClick()} style={{color: allColor}}>All</p>
+            {/* Active  */}
+            <p className="active" onMouseOver={() => handleActiveMouseOver()}
+            onMouseOut={() => handleActiveMouseOut()}
+            onClick={() => handleActiveClick()} style={{color: activeColor}}>Active</p>
+            {/* Complete  */}
+            <p className="complete" onMouseOver={() => handleCompleteMouseOver()}
+            onMouseOut={() => handleCompleteMouseOut()}
+            onClick={() => handleCompleteClick()} style={{color: completeColor}}>Completed</p>
+          </div>
+
           <p className="completed-cleaner" onMouseOver={() => handleClearMouseOver()}
           onMouseOut={() => handleClearMouseOut()}
          onClick={() => handleClearCompleted()} style={{color: clearColor}}>Clear Completed</p>
