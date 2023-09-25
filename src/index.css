@@ -79,7 +79,6 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);
     padding: 14px 20px;
     margin-bottom: 16px;
   }
@@ -121,7 +120,6 @@
     word-wrap: break-word;
     word-break: break-all;
     overflow-y: auto;
-
   }
 
   .todo-item {
@@ -134,8 +132,7 @@
   }
 
   .todo {
-    max-width: 220px;
-    color: #494C6B;
+    max-width: 85%;
     font-size: 12px;
     letter-spacing: -0.167px;
   }
@@ -144,8 +141,9 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-right: 12px;
-    border: 1px solid #E3E4F1;
+    margin-right: 24px;
+    border-width: 1px;
+    border-style: solid;
   }
 
   .left {
@@ -153,6 +151,12 @@
     height: max-content;
     display: flex;
     align-items: center;
+  }
+
+  .delete {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
   }
 
   .main-footer {
@@ -177,5 +181,203 @@
     font-size: 14px;
     font-weight: 700;
     letter-spacing: -0.194px;
+  }
+}
+
+
+
+@media (min-width: 1440px) {
+  .App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 450px 115px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  .header {
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .backgroundImg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0%; 
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+    transform: scale(1);
+  }
+
+  .backgroundImgColor {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    opacity: 0.6;
+  }
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 15px;
+    color: white;
+    margin-bottom: 40px;
+  }
+
+  .title svg {
+    width: 25px;
+    height: 26px;
+    margin-bottom: 4px;
+  }
+
+  .input-container {
+    width: 100%;
+    height: 11%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 24px;
+  }
+
+  .form {
+    width: 90%;
+  }
+
+  .form input {
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Josefin Sans';
+    letter-spacing: -0.167px;
+    border: unset;
+    outline: none;
+  }
+
+  .form button {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    height: 60%;
+    padding-top: 21px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: unset;
+  }
+
+  .todo-item {
+    width: 100%;
+    height: 18.5%;
+    padding: 21px 24px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .todo {
+    max-width: 85%;
+    font-size: 18px;
+    letter-spacing: -0.167px;
+  }
+
+  .check-todo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 24px;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .left {
+    width: 95%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+  }
+
+  .delete {
+    width: 18px;
+    height: 18px;
+    display: none;
+  }
+
+  .main-footer {
+    width: 100%;
+    height: 8.5%;
+    padding: 0px 24px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    border-top: unset;
+    position: absolute;
+    z-index: 0;
+    top: 87%;
+  }
+
+  .footer {
+    width: 100%;
+    height: max-content;
+    border-radius: 0 0 5px 5px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 19px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.194px;
+  }
+
+  .footer p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .title svg:hover,
+  .todo-item:hover,
+  .completed-cleaner:hover,
+  .footer p:hover {
+    cursor: pointer;
   }
 }
